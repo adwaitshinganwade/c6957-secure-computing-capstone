@@ -1,0 +1,367 @@
+----
+time->Fri Feb 28 10:18:05 2025
+type=PROCTITLE msg=audit(1740763085.592:206): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F30002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F31002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F32002E2E2F657866696C74726174696F
+type=PATH msg=audit(1740763085.592:206): item=1 name="../exfiltration-testbed/sftp_test_0" inode=188188 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763085.592:206): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763085.592:206): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763085.592:206): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=7fffffffe2f0 a2=941 a3=1b6 items=2 ppid=1417 pid=1558 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:18:05 2025
+type=PROCTITLE msg=audit(1740763085.592:207): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F30002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F31002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F32002E2E2F657866696C74726174696F
+type=PATH msg=audit(1740763085.592:207): item=1 name="../exfiltration-testbed/sftp_test_1" inode=188189 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763085.592:207): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763085.592:207): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763085.592:207): arch=c000003e syscall=257 success=yes exit=0 a0=ffffff9c a1=7fffffffe314 a2=941 a3=1b6 items=2 ppid=1417 pid=1558 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:18:05 2025
+type=PROCTITLE msg=audit(1740763085.592:208): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F30002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F31002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F32002E2E2F657866696C74726174696F
+type=PATH msg=audit(1740763085.592:208): item=1 name="../exfiltration-testbed/sftp_test_2" inode=188190 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763085.592:208): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763085.592:208): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763085.592:208): arch=c000003e syscall=257 success=yes exit=0 a0=ffffff9c a1=7fffffffe338 a2=941 a3=1b6 items=2 ppid=1417 pid=1558 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:18:05 2025
+type=PROCTITLE msg=audit(1740763085.592:209): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F30002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F31002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F32002E2E2F657866696C74726174696F
+type=PATH msg=audit(1740763085.592:209): item=1 name="../exfiltration-testbed/sftp_test_3" inode=188191 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763085.592:209): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763085.592:209): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763085.592:209): arch=c000003e syscall=257 success=yes exit=0 a0=ffffff9c a1=7fffffffe35c a2=941 a3=1b6 items=2 ppid=1417 pid=1558 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:18:05 2025
+type=PROCTITLE msg=audit(1740763085.592:210): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F30002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F31002E2E2F657866696C74726174696F6E2D746573746265642F736674705F746573745F32002E2E2F657866696C74726174696F
+type=PATH msg=audit(1740763085.592:210): item=1 name="../exfiltration-testbed/sftp_test_4" inode=188192 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763085.592:210): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763085.592:210): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763085.592:210): arch=c000003e syscall=257 success=yes exit=0 a0=ffffff9c a1=7fffffffe380 a2=941 a3=1b6 items=2 ppid=1417 pid=1558 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:18:09 2025
+type=PROCTITLE msg=audit(1740763089.988:211): proctitle=6C73002D2D636F6C6F723D6175746F002E2E2F657866696C74726174696F6E2D746573746265642F
+type=PATH msg=audit(1740763089.988:211): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763089.988:211): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763089.988:211): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=5555555814a0 a2=90800 a3=0 items=1 ppid=1417 pid=1560 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="ls" exe="/usr/bin/ls" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:18:17 2025
+type=PROCTITLE msg=audit(1740763097.764:212): proctitle="/bin/bash"
+type=PATH msg=audit(1740763097.764:212): item=0 name="/home/cs4440/exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763097.764:212): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763097.764:212): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=5555557d4370 a2=90800 a3=0 items=1 ppid=1417 pid=1567 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="bash" exe="/usr/bin/bash" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:18:21 2025
+type=PROCTITLE msg=audit(1740763101.620:213): proctitle=6C73002D2D636F6C6F723D6175746F002E2E2F657866696C74726174696F6E2D746573746265642F
+type=PATH msg=audit(1740763101.620:213): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763101.620:213): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763101.620:213): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=5555555814a0 a2=90800 a3=0 items=1 ppid=1417 pid=1570 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="ls" exe="/usr/bin/ls" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:19:25 2025
+type=USER_AUTH msg=audit(1740763165.392:214): pid=1574 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:authentication grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:19:25 2025
+type=USER_ACCT msg=audit(1740763165.392:215): pid=1574 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:19:25 2025
+type=CRED_ACQ msg=audit(1740763165.396:216): pid=1574 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:19:25 2025
+type=LOGIN msg=audit(1740763165.396:217): pid=1574 uid=0 subj=unconfined old-auid=4294967295 auid=1000 tty=(none) old-ses=4294967295 ses=4 res=1
+----
+time->Fri Feb 28 10:19:25 2025
+type=PROCTITLE msg=audit(1740763165.396:217): proctitle=737368643A20637334343430205B707269765D
+type=SYSCALL msg=audit(1740763165.396:217): arch=c000003e syscall=1 success=yes exit=4 a0=3 a1=7fffffffe0c0 a2=4 a3=7ffff7f68371 items=0 ppid=691 pid=1574 auid=1000 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined key=(null)
+----
+time->Fri Feb 28 10:19:25 2025
+type=USER_START msg=audit(1740763165.476:218): pid=1574 uid=0 auid=1000 ses=4 subj=unconfined msg='op=PAM:session_open grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:19:25 2025
+type=CRED_ACQ msg=audit(1740763165.476:219): pid=1605 uid=0 auid=1000 ses=4 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:19:38 2025
+type=PROCTITLE msg=audit(1740763178.804:220): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763178.804:220): item=0 name="/home/cs4440/exfiltration-testbed" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763178.804:220): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763178.804:220): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555594d40 a2=90800 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:12 2025
+type=PROCTITLE msg=audit(1740763212.532:221): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763212.532:221): item=0 name="/home/cs4440/exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763212.532:221): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763212.532:221): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555594d10 a2=90800 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:12 2025
+type=PROCTITLE msg=audit(1740763212.536:222): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763212.536:222): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_0" inode=185677 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763212.536:222): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763212.536:222): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555596600 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:12 2025
+type=PROCTITLE msg=audit(1740763212.540:223): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763212.540:223): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_1" inode=188079 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763212.540:223): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763212.540:223): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555593760 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:12 2025
+type=PROCTITLE msg=audit(1740763212.540:224): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763212.540:224): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_2" inode=188184 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763212.540:224): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763212.540:224): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555596600 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:12 2025
+type=PROCTITLE msg=audit(1740763212.540:225): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763212.540:225): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_3" inode=188186 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763212.540:225): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763212.540:225): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555593760 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:12 2025
+type=PROCTITLE msg=audit(1740763212.544:226): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763212.544:226): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_4" inode=188187 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763212.544:226): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763212.544:226): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555596600 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:40 2025
+type=PROCTITLE msg=audit(1740763240.772:227): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763240.772:227): item=0 name="/home/cs4440/exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763240.772:227): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763240.772:227): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555594d40 a2=90800 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:40 2025
+type=PROCTITLE msg=audit(1740763240.776:228): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763240.776:228): item=0 name="/home/cs4440/exfiltration-testbed/sftp_test_0" inode=188188 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763240.776:228): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763240.776:228): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555593760 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:40 2025
+type=PROCTITLE msg=audit(1740763240.776:229): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763240.776:229): item=0 name="/home/cs4440/exfiltration-testbed/sftp_test_1" inode=188189 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763240.776:229): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763240.776:229): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555596600 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:40 2025
+type=PROCTITLE msg=audit(1740763240.776:230): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763240.776:230): item=0 name="/home/cs4440/exfiltration-testbed/sftp_test_2" inode=188190 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763240.776:230): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763240.776:230): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555593760 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:40 2025
+type=PROCTITLE msg=audit(1740763240.776:231): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763240.776:231): item=0 name="/home/cs4440/exfiltration-testbed/sftp_test_3" inode=188191 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763240.776:231): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763240.776:231): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555596600 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:40 2025
+type=PROCTITLE msg=audit(1740763240.776:232): proctitle="/usr/lib/openssh/sftp-server"
+type=PATH msg=audit(1740763240.776:232): item=0 name="/home/cs4440/exfiltration-testbed/sftp_test_4" inode=188192 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763240.776:232): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763240.776:232): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=555555593760 a2=0 a3=0 items=1 ppid=1605 pid=1606 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=4 comm="sftp-server" exe="/usr/lib/openssh/sftp-server" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:20:48 2025
+type=USER_END msg=audit(1740763248.864:233): pid=1574 uid=0 auid=1000 ses=4 subj=unconfined msg='op=PAM:session_close grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:20:48 2025
+type=CRED_DISP msg=audit(1740763248.864:234): pid=1574 uid=0 auid=1000 ses=4 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:21:58 2025
+type=PROCTITLE msg=audit(1740763318.672:235): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F30002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F31002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F32002E2E
+type=PATH msg=audit(1740763318.672:235): item=1 name="../exfiltration-testbed/scp_test_only_0" inode=132476 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763318.672:235): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763318.672:235): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763318.672:235): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=7fffffffe2dc a2=941 a3=1b6 items=2 ppid=1417 pid=1623 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:21:58 2025
+type=PROCTITLE msg=audit(1740763318.672:236): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F30002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F31002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F32002E2E
+type=PATH msg=audit(1740763318.672:236): item=1 name="../exfiltration-testbed/scp_test_only_1" inode=188204 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763318.672:236): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763318.672:236): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763318.672:236): arch=c000003e syscall=257 success=yes exit=0 a0=ffffff9c a1=7fffffffe304 a2=941 a3=1b6 items=2 ppid=1417 pid=1623 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:21:58 2025
+type=PROCTITLE msg=audit(1740763318.672:237): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F30002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F31002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F32002E2E
+type=PATH msg=audit(1740763318.672:237): item=1 name="../exfiltration-testbed/scp_test_only_2" inode=188205 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763318.672:237): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763318.672:237): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763318.672:237): arch=c000003e syscall=257 success=yes exit=0 a0=ffffff9c a1=7fffffffe32c a2=941 a3=1b6 items=2 ppid=1417 pid=1623 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:21:58 2025
+type=PROCTITLE msg=audit(1740763318.672:238): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F30002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F31002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F32002E2E
+type=PATH msg=audit(1740763318.672:238): item=1 name="../exfiltration-testbed/scp_test_only_3" inode=188206 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763318.672:238): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763318.672:238): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763318.672:238): arch=c000003e syscall=257 success=yes exit=0 a0=ffffff9c a1=7fffffffe354 a2=941 a3=1b6 items=2 ppid=1417 pid=1623 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:21:58 2025
+type=PROCTITLE msg=audit(1740763318.672:239): proctitle=746F756368002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F30002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F31002E2E2F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F32002E2E
+type=PATH msg=audit(1740763318.672:239): item=1 name="../exfiltration-testbed/scp_test_only_4" inode=188207 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=CREATE cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(1740763318.672:239): item=0 name="../exfiltration-testbed/" inode=132301 dev=08:01 mode=040775 ouid=1000 ogid=1001 rdev=00:00 nametype=PARENT cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763318.672:239): cwd="/home/cs4440/exfiltration-workspace"
+type=SYSCALL msg=audit(1740763318.672:239): arch=c000003e syscall=257 success=yes exit=0 a0=ffffff9c a1=7fffffffe37c a2=941 a3=1b6 items=2 ppid=1417 pid=1623 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=pts2 ses=1 comm="touch" exe="/usr/bin/touch" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:24:33 2025
+type=USER_ERR msg=audit(1740763473.176:240): pid=1653 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:bad_ident grantors=? acct="?" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=failed'
+----
+time->Fri Feb 28 10:25:11 2025
+type=USER_AUTH msg=audit(1740763511.588:241): pid=1657 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:authentication grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:25:11 2025
+type=USER_ACCT msg=audit(1740763511.588:242): pid=1657 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:25:11 2025
+type=CRED_ACQ msg=audit(1740763511.592:243): pid=1657 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:25:11 2025
+type=LOGIN msg=audit(1740763511.592:244): pid=1657 uid=0 subj=unconfined old-auid=4294967295 auid=1000 tty=(none) old-ses=4294967295 ses=5 res=1
+----
+time->Fri Feb 28 10:25:11 2025
+type=PROCTITLE msg=audit(1740763511.592:244): proctitle=737368643A20637334343430205B707269765D
+type=SYSCALL msg=audit(1740763511.592:244): arch=c000003e syscall=1 success=yes exit=4 a0=3 a1=7fffffffe0c0 a2=4 a3=7ffff7f68371 items=0 ppid=691 pid=1657 auid=1000 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=5 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined key=(null)
+----
+time->Fri Feb 28 10:25:11 2025
+type=USER_START msg=audit(1740763511.648:245): pid=1657 uid=0 auid=1000 ses=5 subj=unconfined msg='op=PAM:session_open grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:25:11 2025
+type=CRED_ACQ msg=audit(1740763511.648:246): pid=1687 uid=0 auid=1000 ses=5 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:25:11 2025
+type=PROCTITLE msg=audit(1740763511.696:247): proctitle=736370002D66002F686F6D652F6373343434302F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F30
+type=PATH msg=audit(1740763511.696:247): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_only_0" inode=132476 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763511.696:247): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763511.696:247): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=5555555902d0 a2=800 a3=0 items=1 ppid=1687 pid=1688 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=5 comm="scp" exe="/usr/bin/scp" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:25:11 2025
+type=USER_END msg=audit(1740763511.700:248): pid=1657 uid=0 auid=1000 ses=5 subj=unconfined msg='op=PAM:session_close grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:25:11 2025
+type=CRED_DISP msg=audit(1740763511.700:249): pid=1657 uid=0 auid=1000 ses=5 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:30 2025
+type=USER_AUTH msg=audit(1740763590.564:250): pid=1695 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:authentication grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:30 2025
+type=USER_ACCT msg=audit(1740763590.564:251): pid=1695 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:30 2025
+type=CRED_ACQ msg=audit(1740763590.568:252): pid=1695 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:30 2025
+type=LOGIN msg=audit(1740763590.568:253): pid=1695 uid=0 subj=unconfined old-auid=4294967295 auid=1000 tty=(none) old-ses=4294967295 ses=6 res=1
+----
+time->Fri Feb 28 10:26:30 2025
+type=PROCTITLE msg=audit(1740763590.568:253): proctitle=737368643A20637334343430205B707269765D
+type=SYSCALL msg=audit(1740763590.568:253): arch=c000003e syscall=1 success=yes exit=4 a0=3 a1=7fffffffe0c0 a2=4 a3=7ffff7f68371 items=0 ppid=691 pid=1695 auid=1000 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=6 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined key=(null)
+----
+time->Fri Feb 28 10:26:30 2025
+type=USER_START msg=audit(1740763590.628:254): pid=1695 uid=0 auid=1000 ses=6 subj=unconfined msg='op=PAM:session_open grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:30 2025
+type=CRED_ACQ msg=audit(1740763590.632:255): pid=1725 uid=0 auid=1000 ses=6 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:30 2025
+type=PROCTITLE msg=audit(1740763590.680:256): proctitle=736370002D66002F686F6D652F6373343434302F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F31
+type=PATH msg=audit(1740763590.680:256): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_only_1" inode=188204 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763590.680:256): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763590.680:256): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=5555555902d0 a2=800 a3=0 items=1 ppid=1725 pid=1726 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=6 comm="scp" exe="/usr/bin/scp" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:26:30 2025
+type=USER_END msg=audit(1740763590.684:257): pid=1695 uid=0 auid=1000 ses=6 subj=unconfined msg='op=PAM:session_close grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:30 2025
+type=CRED_DISP msg=audit(1740763590.684:258): pid=1695 uid=0 auid=1000 ses=6 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:37 2025
+type=USER_AUTH msg=audit(1740763597.752:259): pid=1729 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:authentication grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:37 2025
+type=USER_ACCT msg=audit(1740763597.756:260): pid=1729 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:37 2025
+type=CRED_ACQ msg=audit(1740763597.756:261): pid=1729 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:37 2025
+type=LOGIN msg=audit(1740763597.756:262): pid=1729 uid=0 subj=unconfined old-auid=4294967295 auid=1000 tty=(none) old-ses=4294967295 ses=7 res=1
+----
+time->Fri Feb 28 10:26:37 2025
+type=PROCTITLE msg=audit(1740763597.756:262): proctitle=737368643A20637334343430205B707269765D
+type=SYSCALL msg=audit(1740763597.756:262): arch=c000003e syscall=1 success=yes exit=4 a0=3 a1=7fffffffe0c0 a2=4 a3=7ffff7f68371 items=0 ppid=691 pid=1729 auid=1000 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=7 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined key=(null)
+----
+time->Fri Feb 28 10:26:37 2025
+type=USER_START msg=audit(1740763597.820:263): pid=1729 uid=0 auid=1000 ses=7 subj=unconfined msg='op=PAM:session_open grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:37 2025
+type=CRED_ACQ msg=audit(1740763597.824:264): pid=1759 uid=0 auid=1000 ses=7 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:37 2025
+type=PROCTITLE msg=audit(1740763597.880:265): proctitle=736370002D66002F686F6D652F6373343434302F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F32
+type=PATH msg=audit(1740763597.880:265): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_only_2" inode=188205 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763597.880:265): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763597.880:265): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=5555555902d0 a2=800 a3=0 items=1 ppid=1759 pid=1760 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=7 comm="scp" exe="/usr/bin/scp" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:26:37 2025
+type=USER_END msg=audit(1740763597.884:266): pid=1729 uid=0 auid=1000 ses=7 subj=unconfined msg='op=PAM:session_close grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:37 2025
+type=CRED_DISP msg=audit(1740763597.884:267): pid=1729 uid=0 auid=1000 ses=7 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:43 2025
+type=USER_AUTH msg=audit(1740763603.408:268): pid=1763 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:authentication grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:43 2025
+type=USER_ACCT msg=audit(1740763603.408:269): pid=1763 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:43 2025
+type=CRED_ACQ msg=audit(1740763603.412:270): pid=1763 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:43 2025
+type=LOGIN msg=audit(1740763603.412:271): pid=1763 uid=0 subj=unconfined old-auid=4294967295 auid=1000 tty=(none) old-ses=4294967295 ses=8 res=1
+----
+time->Fri Feb 28 10:26:43 2025
+type=PROCTITLE msg=audit(1740763603.412:271): proctitle=737368643A20637334343430205B707269765D
+type=SYSCALL msg=audit(1740763603.412:271): arch=c000003e syscall=1 success=yes exit=4 a0=3 a1=7fffffffe0c0 a2=4 a3=7ffff7f68371 items=0 ppid=691 pid=1763 auid=1000 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=8 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined key=(null)
+----
+time->Fri Feb 28 10:26:43 2025
+type=USER_START msg=audit(1740763603.472:272): pid=1763 uid=0 auid=1000 ses=8 subj=unconfined msg='op=PAM:session_open grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:43 2025
+type=CRED_ACQ msg=audit(1740763603.472:273): pid=1794 uid=0 auid=1000 ses=8 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:43 2025
+type=PROCTITLE msg=audit(1740763603.520:274): proctitle=736370002D66002F686F6D652F6373343434302F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F33
+type=PATH msg=audit(1740763603.520:274): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_only_3" inode=188206 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763603.520:274): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763603.520:274): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=5555555902d0 a2=800 a3=0 items=1 ppid=1794 pid=1795 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=8 comm="scp" exe="/usr/bin/scp" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:26:43 2025
+type=USER_END msg=audit(1740763603.524:275): pid=1763 uid=0 auid=1000 ses=8 subj=unconfined msg='op=PAM:session_close grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:43 2025
+type=CRED_DISP msg=audit(1740763603.524:276): pid=1763 uid=0 auid=1000 ses=8 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:49 2025
+type=USER_AUTH msg=audit(1740763609.772:277): pid=1799 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:authentication grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:49 2025
+type=USER_ACCT msg=audit(1740763609.776:278): pid=1799 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:49 2025
+type=CRED_ACQ msg=audit(1740763609.776:279): pid=1799 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:49 2025
+type=LOGIN msg=audit(1740763609.776:280): pid=1799 uid=0 subj=unconfined old-auid=4294967295 auid=1000 tty=(none) old-ses=4294967295 ses=9 res=1
+----
+time->Fri Feb 28 10:26:49 2025
+type=PROCTITLE msg=audit(1740763609.776:280): proctitle=737368643A20637334343430205B707269765D
+type=SYSCALL msg=audit(1740763609.776:280): arch=c000003e syscall=1 success=yes exit=4 a0=3 a1=7fffffffe0c0 a2=4 a3=7ffff7f68371 items=0 ppid=691 pid=1799 auid=1000 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=9 comm="sshd" exe="/usr/sbin/sshd" subj=unconfined key=(null)
+----
+time->Fri Feb 28 10:26:49 2025
+type=USER_START msg=audit(1740763609.840:281): pid=1799 uid=0 auid=1000 ses=9 subj=unconfined msg='op=PAM:session_open grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:49 2025
+type=CRED_ACQ msg=audit(1740763609.840:282): pid=1829 uid=0 auid=1000 ses=9 subj=unconfined msg='op=PAM:setcred grantors=pam_permit,pam_cap acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:49 2025
+type=PROCTITLE msg=audit(1740763609.904:283): proctitle=736370002D66002F686F6D652F6373343434302F657866696C74726174696F6E2D746573746265642F7363705F746573745F6F6E6C795F34
+type=PATH msg=audit(1740763609.904:283): item=0 name="/home/cs4440/exfiltration-testbed/scp_test_only_4" inode=188207 dev=08:01 mode=0100664 ouid=1000 ogid=1001 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(1740763609.904:283): cwd="/home/cs4440"
+type=SYSCALL msg=audit(1740763609.904:283): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=5555555902d0 a2=800 a3=0 items=1 ppid=1829 pid=1830 auid=1000 uid=1000 gid=1001 euid=1000 suid=1000 fsuid=1000 egid=1001 sgid=1001 fsgid=1001 tty=(none) ses=9 comm="scp" exe="/usr/bin/scp" subj=unconfined key="exfil-tests"
+----
+time->Fri Feb 28 10:26:49 2025
+type=USER_END msg=audit(1740763609.908:284): pid=1799 uid=0 auid=1000 ses=9 subj=unconfined msg='op=PAM:session_close grantors=pam_selinux,pam_loginuid,pam_keyinit,pam_permit,pam_umask,pam_unix,pam_systemd,pam_mail,pam_limits,pam_env,pam_env,pam_selinux acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'
+----
+time->Fri Feb 28 10:26:49 2025
+type=CRED_DISP msg=audit(1740763609.908:285): pid=1799 uid=0 auid=1000 ses=9 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="cs4440" exe="/usr/sbin/sshd" hostname=::1 addr=::1 terminal=ssh res=success'

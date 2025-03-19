@@ -1,0 +1,226 @@
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:44.770:685) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:44.770:685) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:44.770:685) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:44.770:685) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555c9b0c0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:44.786:686) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:44.786:686) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:44.786:686) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:44.786:686) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555a80f10 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:44.794:687) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:44.794:687) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:44.794:687) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:44.794:687) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555bdf9c0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:44.806:688) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:44.806:688) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:44.806:688) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:44.806:688) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555bb6180 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:44.818:689) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:44.818:689) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:44.818:689) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:44.818:689) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555b971d0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:44.834:690) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:44.834:690) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:44.834:690) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:44.834:690) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555a18a90 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:44.850:691) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:44.850:691) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:44.850:691) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:44.850:691) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555bb6ca0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:45.229:692) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:45.229:692) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:45.229:692) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:45.229:692) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555b971d0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:45.237:693) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:45.237:693) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:45.237:693) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:45.237:693) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555aabd40 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:45.253:694) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:45.253:694) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:45.253:694) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:45.253:694) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555a271d0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:45.269:695) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:45.269:695) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:45.269:695) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:45.269:695) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555c9b0c0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:45.281:696) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:45.281:696) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:45.281:696) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:45.281:696) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555a80f10 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:45.297:697) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:45.297:697) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:45.297:697) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:45.297:697) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555c746d0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:45.313:698) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:45.313:698) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:45.313:698) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:45.313:698) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555aabd40 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:45.329:699) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:45.329:699) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:45.329:699) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:45.329:699) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555ae1290 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:50.679:700) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:50.679:700) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:50.679:700) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:50.679:700) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555b89650 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:50.687:701) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:50.687:701) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:50.687:701) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:50.687:701) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555ca2e80 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:50.711:702) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:50.711:702) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:50.711:702) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:50.711:702) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555b00890 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:50.727:703) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:50.727:703) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:50.727:703) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:50.727:703) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555a4df80 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:50.743:704) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:50.743:704) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:50.743:704) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:50.743:704) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555c69ac0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:50.759:705) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:50.759:705) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:50.759:705) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:50.759:705) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555a80f10 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:50.775:706) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:50.775:706) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:50.775:706) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:50.775:706) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555ca2e80 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:50.791:707) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:50.791:707) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:50.791:707) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:50.791:707) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555c746d0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:50.807:708) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:50.807:708) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:50.807:708) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:50.807:708) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555bf1900 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.422:709) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.422:709) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.422:709) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.422:709) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555c76550 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.426:710) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.426:710) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.426:710) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.426:710) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555b00890 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.486:711) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.486:711) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.486:711) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.486:711) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555b2fc00 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.498:712) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.498:712) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.498:712) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.498:712) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555aabd40 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.522:713) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.522:713) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.522:713) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.522:713) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555be0d00 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.534:714) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.534:714) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.534:714) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.534:714) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555ca2e80 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.542:715) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.542:715) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.542:715) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.542:715) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555bf20e0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.558:716) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.558:716) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.558:716) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.558:716) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555be0d00 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.574:717) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.574:717) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.574:717) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.574:717) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x555555c9cdc0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:27:51.590:718) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:27:51.590:718) : item=0 name=/home/cs4440/exfiltration-workspace/scp-sftp-tests.sh inode=188071 dev=08:01 mode=file,744 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:27:51.590:718) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:27:51.590:718) : arch=x86_64 syscall=openat success=yes exit=29 a0=0xffffff9c a1=0x5555556ab9f0 a2=O_RDONLY a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=pcmanfm-qt exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:28:12.120:719) : proctitle=/usr/bin/lxqt-powermanagement
+type=PATH msg=audit(03/19/2025 17:28:12.120:719) : item=1 name=/home/cs4440/.config/lxqt/debug.log inode=133102 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(03/19/2025 17:28:12.120:719) : item=0 name=/home/cs4440/.config/lxqt/ inode=132482 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:28:12.120:719) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:28:12.120:719) : arch=x86_64 syscall=openat success=yes exit=28 a0=0xffffff9c a1=0x7fffe4026338 a2=O_RDWR|O_CREAT|O_APPEND a3=0x1b6 items=2 ppid=926 pid=1173 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=lxqt-powermanag exe=/usr/bin/lxqt-powermanagement subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:30:12.156:726) : proctitle=/usr/bin/lxqt-powermanagement
+type=PATH msg=audit(03/19/2025 17:30:12.156:726) : item=1 name=/home/cs4440/.config/lxqt/debug.log inode=133102 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(03/19/2025 17:30:12.156:726) : item=0 name=/home/cs4440/.config/lxqt/ inode=132482 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:30:12.156:726) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:30:12.156:726) : arch=x86_64 syscall=openat success=yes exit=28 a0=0xffffff9c a1=0x7fffe4021778 a2=O_RDWR|O_CREAT|O_APPEND a3=0x1b6 items=2 ppid=926 pid=1173 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=lxqt-powermanag exe=/usr/bin/lxqt-powermanagement subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:32:12.132:727) : proctitle=/usr/bin/lxqt-powermanagement
+type=PATH msg=audit(03/19/2025 17:32:12.132:727) : item=1 name=/home/cs4440/.config/lxqt/debug.log inode=133102 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(03/19/2025 17:32:12.132:727) : item=0 name=/home/cs4440/.config/lxqt/ inode=132482 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:32:12.132:727) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:32:12.132:727) : arch=x86_64 syscall=openat success=yes exit=28 a0=0xffffff9c a1=0x555555760ac8 a2=O_RDWR|O_CREAT|O_APPEND a3=0x1b6 items=2 ppid=926 pid=1173 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=lxqt-powermanag exe=/usr/bin/lxqt-powermanagement subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:32:23.586:728) : proctitle=featherpad /home/cs4440/exfiltration-workspace/auditd.rules
+type=PATH msg=audit(03/19/2025 17:32:23.586:728) : item=0 name=/home/cs4440/exfiltration-workspace/auditd.rules inode=188069 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:32:23.586:728) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:32:23.586:728) : arch=x86_64 syscall=openat success=yes exit=15 a0=0xffffff9c a1=0x7fffd8004a08 a2=O_RDONLY|O_CLOEXEC a3=0x0 items=1 ppid=1 pid=27656 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=FeatherPad::Loa exe=/usr/bin/featherpad subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:33:03.958:730) : proctitle=sudo auctl -D
+type=PATH msg=audit(03/19/2025 17:33:03.958:730) : item=1 name=/home/cs4440/.sudo_as_admin_successful inode=132475 dev=08:01 mode=file,644 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(03/19/2025 17:33:03.958:730) : item=0 name=/home/cs4440/ inode=193916 dev=08:01 mode=dir,755 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:33:03.958:730) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:33:03.958:730) : arch=x86_64 syscall=openat success=no exit=EEXIST(File exists) a0=0xffffff9c a1=0x7fffffffcc80 a2=O_WRONLY|O_CREAT|O_EXCL|O_NONBLOCK a3=0x1a4 items=2 ppid=1814 pid=27877 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=root fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=sudo exe=/usr/bin/sudo subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:33:07.996:733) : proctitle=sudo auditctl -D
+type=PATH msg=audit(03/19/2025 17:33:07.996:733) : item=1 name=/home/cs4440/.sudo_as_admin_successful inode=132475 dev=08:01 mode=file,644 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(03/19/2025 17:33:07.996:733) : item=0 name=/home/cs4440/ inode=193916 dev=08:01 mode=dir,755 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:33:07.996:733) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:33:07.996:733) : arch=x86_64 syscall=openat success=no exit=EEXIST(File exists) a0=0xffffff9c a1=0x7fffffffcc70 a2=O_WRONLY|O_CREAT|O_EXCL|O_NONBLOCK a3=0x1a4 items=2 ppid=1814 pid=27881 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=root fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=sudo exe=/usr/bin/sudo subj=unconfined key=exfil-tests
+----
+type=PROCTITLE msg=audit(03/19/2025 17:36:45.179:770) : proctitle=python3 simple_exfil_test.py
+type=PATH msg=audit(03/19/2025 17:36:45.179:770) : item=0 name=/home/cs4440/exfiltration-testbed/secret inode=188062 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:36:45.179:770) : cwd=/home/cs4440/exfiltration-workspace
+type=SYSCALL msg=audit(03/19/2025 17:36:45.179:770) : arch=x86_64 syscall=openat success=yes exit=3 a0=0xffffff9c a1=0x7ffff74ea690 a2=O_RDONLY|O_CLOEXEC a3=0x0 items=1 ppid=1814 pid=27948 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=python3 exe=/usr/bin/python3.8 subj=unconfined key=exfil-test
+----
+type=PROCTITLE msg=audit(03/19/2025 17:36:45.179:771) : proctitle=python3 simple_exfil_test.py
+type=PATH msg=audit(03/19/2025 17:36:45.179:771) : item=1 name=/home/cs4440/unsafe-location/secret inode=187905 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=CREATE cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(03/19/2025 17:36:45.179:771) : item=0 name=/home/cs4440/unsafe-location/ inode=185737 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:36:45.179:771) : cwd=/home/cs4440/exfiltration-workspace
+type=SYSCALL msg=audit(03/19/2025 17:36:45.179:771) : arch=x86_64 syscall=openat success=yes exit=3 a0=0xffffff9c a1=0x7ffff74eaa00 a2=O_WRONLY|O_CREAT|O_TRUNC|O_CLOEXEC a3=0x1b6 items=2 ppid=1814 pid=27948 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=python3 exe=/usr/bin/python3.8 subj=unconfined key=exfil-test
+----
+type=PROCTITLE msg=audit(03/19/2025 17:37:03.610:772) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:37:03.610:772) : item=0 name=/home/cs4440/unsafe-location inode=185737 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:37:03.610:772) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:37:03.610:772) : arch=x86_64 syscall=openat success=yes exit=32 a0=0xffffff9c a1=0x7fffb8000f00 a2=O_RDONLY|O_NONBLOCK|O_DIRECTORY|O_CLOEXEC a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=Fm::JobThread exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-test
+----
+type=PROCTITLE msg=audit(03/19/2025 17:37:03.610:773) : proctitle=/usr/bin/pcmanfm-qt --desktop --profile=lxqt
+type=PATH msg=audit(03/19/2025 17:37:03.610:773) : item=0 name=/home/cs4440/unsafe-location/secret inode=187905 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(03/19/2025 17:37:03.610:773) : cwd=/home/cs4440
+type=SYSCALL msg=audit(03/19/2025 17:37:03.610:773) : arch=x86_64 syscall=openat success=yes exit=33 a0=0xffffff9c a1=0x7fffb8012a20 a2=O_RDONLY|O_NOATIME a3=0x0 items=1 ppid=926 pid=1044 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=(none) ses=1 comm=Fm::JobThread exe=/usr/bin/pcmanfm-qt subj=unconfined key=exfil-test
