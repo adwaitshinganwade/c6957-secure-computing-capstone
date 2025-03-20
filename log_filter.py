@@ -46,7 +46,7 @@ def process_event_sequence(event_sequence: str):
                     if pid := syscall['pid'] not in process_map:
                         process_map[pid] = Process(pid, syscall['ppid'], sensitive_path)
                     else:
-                        process_map[pid].mark_process_sensitive()
+                        process_map[pid].add_sensitive_resource()
                 elif "O_WRONLY" in syscall[2] or "O_RDWR" in syscall[2]:
                     if  syscall['pid'] in process_map and process_map[syscall['pid']].is_process_sensitive():
                         safe_write = False
