@@ -18,6 +18,16 @@ class Process:
         # Sensitive paths this process has access to (e.g., through open file handles)
         self.sensitive_paths = list()
 
+    def add_child(self, child_pid):
+        if child_pid not in self.children:
+            self.children.append(child_pid)
+
+    def remove_child(self, child_pid):
+        try:
+            self.children.remove(child_pid)
+        except ValueError:
+            print(f"The process {self.pid} has no child with ID {child_pid}.", file=stderr)
+
     def add_sensitive_resource(self, sensitive_artifact_locator):
         """
         Adds a locator for a sensitive artifact (typically a file) to self.sensitive_paths.
@@ -42,7 +52,7 @@ class Process:
     def is_process_sensitive(self) -> bool:
         return (len(self.sensitive_paths) >=1)
 
-    def propagate_sensitive_flag_to_children(self):
+    def propagate_sensitive_flag_to_children(self, process_map):
         """
         If this process is sensitive, marks all of its children sensitive recursively. A child is marked
         sensitive by adding its parent's PID as a sensitive resource to its list of sensitive paths. This
@@ -50,7 +60,11 @@ class Process:
         :return: Nothing
         """
         if self.sensitive:
-            for child in self.children:
-                child.add_sensitive_resource(self.pid)
-                child.propagate_sensitive_flag_to_children()
+            for child_pid in self.children:
+                try:
+                    child = process_map[child_pid]
+                    child.add_sensitive_resource("Parent:"+self.pid)
+                    child.propagate_sensitive_flag_to_children(process_map)
+                except KeyError:
+                    print(f"Error while propagating sensitive status from {self.pid} to child {child_pid}. No such child in the process map.", file=stderr)
 
