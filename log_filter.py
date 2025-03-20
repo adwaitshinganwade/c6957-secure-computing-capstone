@@ -1,6 +1,4 @@
-import fileinput
-import auditdpythonparser
-import Process, Syscall
+from Process import Process
 
 LOG_FILE = "sample_auditd_logs/handful_logs"
 PROTECTED_LOCATIONS = ["/home/cs4440/exfiltration-testbed"]
@@ -11,19 +9,39 @@ SAFE_LOCATIONS = ["/home/cs4440/exfiltration-testbed"]
 process_map = dict()
 
 def split_logs_into_event_sequences(logs: str) -> [str]:
-    # The default delimiter used by ausearch is "----"
+    """
+    Splits raw event logs collected using auditd into individual events based on the delimiter "----".
+    :param logs: A string which holds logs processed using ausearch
+    :return: List of individual events.
+    """
     return logs.split("----")
 
 def is_path_sensitive(path: str) -> bool:
+    """
+    Determines if a path is sensitive by comparing it against each location prefix
+    in PROTECTED_LOCATIONS. A path is considered sensitive if a location prefix matches
+    (appears at the beginning) of the provided path.
+    :param path: The path to be inspected
+    :return: True if the path is sensitive, else False
+    """
     for location_prefix in PROTECTED_LOCATIONS:
         if location_prefix in path:
             return True
     return False
 
 def get_event_as_dict(log_event: str):
+    """
+    Transforms an event reported by ausearch into a dictonary, with each key-value pair
+    representing one attribute-value pair from the event log.
+    :param log_event: A string containing a single event log
+    :return: The event from log_event as a dictionary
+    """
+
+    # The actual event data follows " : " in each event
     event = log_event.split(" : ")[1]
     event_dict = dict()
 
+    # The event payload is composed of space separated attribute=value pairs
     for key_value_pair in event.split(" "):
         key, value = key_value_pair.split("=")
         event_dict[key] = value
@@ -41,15 +59,19 @@ def create_process_if_not_exists(pid, ppid=None, sensitive=False) -> bool:
     return False
 
 def process_event_sequence(event_sequence: str):
+    print(f"----------\nCurrent event sequence:{event_sequence}")
     events = event_sequence.split("\n")
     paths = []
+    sensitive_paths = []
     sensitive_path = False
     for event in events:
         if "PATH" in event:
+            path_event_dict = get_event_as_dict(event)
+            # The path in the PATH message is available as the value of the attribute "name"
+            paths.append(path_event_dict['name'])
             if is_path_sensitive(event):
+                sensitive_paths.append(path_event_dict['name'])
                 sensitive_path = sensitive_path | True
-                path_event_dict = get_event_as_dict(event)
-                paths.append(path_event_dict['name'])
         if "SYSCALL" in event:
             syscall = get_event_as_dict(event)
             if syscall['syscall'] == 'openat':
@@ -65,15 +87,20 @@ def process_event_sequence(event_sequence: str):
                     parent_process = process_map[ppid]
                     parent_process.add_child(pid)
                     # TODO : Think - should the path be prefixed with "Child"?
-                    map(parent_process.add_sensitive_resource, paths)
+                    for path in sensitive_paths:
+                        parent_process.add_sensitive_resource(path)
+                    print(f"The parent of process {pid} with PID {ppid} has been marked sensitive.")
 
                     process = process_map[pid]
                     process.ppid = ppid
-                    map(process.add_sensitive_resource, paths)
+                    for path in paths:
+                        process.add_sensitive_resource(path)
                     process.propagate_sensitive_flag_to_children(process_map)
+                    print(f"The process {pid} and its children have been marked sensitive.")
+                    print(f"Sensitive paths: {paths}")
                 else:
                     # If the process exists, and is sensitive
-                    if pid := syscall['pid'] in process_map:
+                    if (pid := syscall['pid']) in process_map:
                         process = process_map[pid]
                         if process.is_process_sensitive():
                             if 'O_WRONLY' in syscall['a2'] or 'O_RDWR' in syscall['a2']:

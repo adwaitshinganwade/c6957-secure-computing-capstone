@@ -19,10 +19,24 @@ class Process:
         self.sensitive_paths = list()
 
     def add_child(self, child_pid):
+        """
+        Adds a process (PID) to the list of children of this process.
+        NOTE: The actual process instance is maintained in an external "process map."
+        :param child_pid: The process ID of the child process
+        :return:  Nothing
+        """
         if child_pid not in self.children:
             self.children.append(child_pid)
 
     def remove_child(self, child_pid):
+        """
+        Removes a process (PID) from the list of children of this process, if it exists.
+        NOTE: This will not delete the actual process instance of the child process.
+        This operation indicates that is no longer a parent-child relationship between
+        two processes.
+        :param child_pid: The process ID of the child process
+        :return: Nothing
+        """
         try:
             self.children.remove(child_pid)
         except ValueError:
@@ -46,11 +60,13 @@ class Process:
         """
         try:
             self.sensitive_paths.remove(sensitive_artifact_locator)
+            if len(self.sensitive_paths) == 0:
+                self.sensitive = False
         except ValueError:
             print(f"Could not find {sensitive_artifact_locator} in the list of sensitive artifacts accessed by the process {self.pid}", file=stderr)
 
     def is_process_sensitive(self) -> bool:
-        return (len(self.sensitive_paths) >=1)
+        return self.sensitive
 
     def propagate_sensitive_flag_to_children(self, process_map):
         """
