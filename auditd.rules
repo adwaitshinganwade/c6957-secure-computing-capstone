@@ -1,6 +1,9 @@
-# Rule to monitor reads and writes originating at a sensitive location
-sudo auditctl -a always,exit -S openat -F dir=/home/cs4440/exfiltration-testbed -F perm=rw -k exfil-test
+# auditd.rules
+# Auditd rules for exfiltration test
 
-# Rules to monitor writes (and optionally, reads) to an unsafe location
-sudo auditctl -a always,exit -S openat -F dir=/home/cs4440/unsafe-location -F perm=rw -k exfil-test
-sudo auditctl -a always,exit -S write -F dir=/home/cs4440/unsafe-location -k exfil-test
+# Monitor read and write operations in the protected directory.
+-a always,exit -S openat -F dir=/home/cs4440/exfiltration-testbed -F perm=rw -k exfil-test
+
+# Monitor operations in the unsafe location.
+-a always,exit -S openat -F dir=/home/cs4440/unsafe-location -F perm=rw -k exfil-test
+-a always,exit -S write -F dir=/home/cs4440/unsafe-location -k exfil-test

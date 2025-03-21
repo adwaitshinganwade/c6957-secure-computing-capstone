@@ -1,0 +1,20 @@
+# rules.yaml
+rules:
+  - name: "Sensitive Openat Detection"
+    event_type: "SYSCALL"
+    syscall: "openat"
+    conditions:
+      - "event.get('a2', '').find('O_RDONLY') != -1 and is_path_sensitive(event.get('path', ''))"
+    actions:
+      - "mark_process_sensitive"
+      - "add_sensitive_resource"
+    message: "Sensitive file opened with read permissions."
+  
+  - name: "Unsafe Write Alert"
+    event_type: "SYSCALL"
+    syscall: "openat"
+    conditions:
+      - "(event.get('a2', '').find('O_WRONLY') != -1 or event.get('a2', '').find('O_RDWR') != -1) and not is_safe_path(event.get('path', ''))"
+    actions:
+      - "alert_admin"
+    message: "Unsafe write detected to an unapproved location."
