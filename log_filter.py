@@ -3,13 +3,12 @@ from os import environ
 from Process import Process
 import logging
 
-HOME_DIRECTORY = environ.get("HOME")
 LOG_FILE_TO_MONITOR = "sample_auditd_logs/handful_logs"
-PROTECTED_LOCATIONS = [f"{HOME_DIRECTORY}/safe-location"]
+PROTECTED_LOCATIONS = ["safe-location"] # auditd reports relative path with some commands and full path with others.
 APP_LOG_FILE = "log_filter.log"
 
 # List of locations (in addition to the protected locations) to which sensitive data may be moved
-SAFE_LOCATIONS = [f"{HOME_DIRECTORY}/safe-location"]
+SAFE_LOCATIONS = [f"safe-location"] # auditd reports relative path with some commands and full path with others.
 
 process_map = dict()
 logger = logging.getLogger("log_filter")
