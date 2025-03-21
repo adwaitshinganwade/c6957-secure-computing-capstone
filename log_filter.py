@@ -1,12 +1,18 @@
-from Process import Process
+import sys
 
-LOG_FILE = "sample_auditd_logs/handful_logs"
+from Process import Process
+import logging
+
+LOG_FILE_TO_MONITOR = "sample_auditd_logs/handful_logs"
 PROTECTED_LOCATIONS = ["/home/cs4440/exfiltration-testbed"]
+APP_LOG_FILE = "log_filter.log"
 
 # List of locations (in addition to the protected locations) to which sensitive data may be moved
 SAFE_LOCATIONS = ["/home/cs4440/exfiltration-testbed"]
 
 process_map = dict()
+logger = logging.getLogger("log_filter")
+
 
 def split_logs_into_event_sequences(logs: str) -> [str]:
     """
@@ -15,6 +21,7 @@ def split_logs_into_event_sequences(logs: str) -> [str]:
     :return: List of individual events.
     """
     return logs.split("----")
+
 
 def is_path_sensitive(path: str) -> bool:
     """
@@ -28,6 +35,7 @@ def is_path_sensitive(path: str) -> bool:
         if location_prefix in path:
             return True
     return False
+
 
 def get_event_as_dict(log_event: str):
     """
@@ -47,6 +55,7 @@ def get_event_as_dict(log_event: str):
         event_dict[key] = value
     return event_dict
 
+
 def create_process_if_not_exists(pid, ppid=None, sensitive=False) -> bool:
     """
     Creates a process and adds it to the process map if it doesn't already exist
@@ -58,8 +67,9 @@ def create_process_if_not_exists(pid, ppid=None, sensitive=False) -> bool:
         return True
     return False
 
+
 def process_event_sequence(event_sequence: str):
-    print(f"----------\nCurrent event sequence:{event_sequence}")
+    logger.debug(f"Current event sequence:\n{event_sequence}")
     events = event_sequence.split("\n")
     paths = []
     sensitive_paths = []
@@ -76,7 +86,7 @@ def process_event_sequence(event_sequence: str):
             syscall = get_event_as_dict(event)
             if syscall['syscall'] == 'openat':
                 if sensitive_path:
-                   # Mark the process, its parent, and children sensitive
+                    # Mark the process, its parent, and children sensitive
                     pid = syscall['pid']
                     ppid = syscall['ppid']
 
@@ -89,15 +99,15 @@ def process_event_sequence(event_sequence: str):
                     # TODO : Think - should the path be prefixed with "Child"?
                     for path in sensitive_paths:
                         parent_process.add_sensitive_resource(path)
-                    print(f"The parent of process {pid} with PID {ppid} has been marked sensitive.")
+                    logger.info(f"The parent of process {pid} with PID {ppid} has been marked sensitive.")
 
                     process = process_map[pid]
                     process.ppid = ppid
                     for path in paths:
                         process.add_sensitive_resource(path)
                     process.propagate_sensitive_flag_to_children(process_map)
-                    print(f"The process {pid} and its children have been marked sensitive.")
-                    print(f"Sensitive paths: {paths}")
+                    logger.info(f"The process {pid} and its children have been marked sensitive.")
+                    logger.info(f"Sensitive paths: {paths}")
                 else:
                     # If the process exists, and is sensitive
                     if (pid := syscall['pid']) in process_map:
@@ -112,17 +122,16 @@ def process_event_sequence(event_sequence: str):
                                             safe_path = safe_path | True
                                     safe_write = safe_write & safe_path
                                 if not safe_write:
-                                    print(f"WARNING: The process with ID {pid} may write data to one or more unsafe locations. Write paths={paths}")
-
-
-
-
-
-
+                                    logger.warning(
+                                        f"The process with ID {pid} may write data to one or more unsafe locations. Write paths={paths}")
 
 
 def main():
-    with open(LOG_FILE, mode="r") as f_auditd_logs:
+    # This configuration applies to loggers instantiated in all other modules. Calling basicConfig() in another
+    # module will override this configuration.
+    logging.basicConfig(level=logging.INFO, handlers=[logging.FileHandler(APP_LOG_FILE), logging.StreamHandler(sys.stdout)],
+                        format="%(asctime)s - %(levelname)-8s - %(name)s - %(message)s")
+    with open(LOG_FILE_TO_MONITOR, mode="r") as f_auditd_logs:
         logs = f_auditd_logs.read()
         events_sequences = split_logs_into_event_sequences(logs)
         for event_sequence in events_sequences:

@@ -1,6 +1,11 @@
+import sys
 from sys import stderr
 
+import logging
 
+APP_LOG_FILE = "log_filter.log"
+
+logger = logging.getLogger(__name__)
 class Process:
     def __init__(self, pid, ppid=None, sensitive=False):
         # ID of the process
@@ -40,7 +45,7 @@ class Process:
         try:
             self.children.remove(child_pid)
         except ValueError:
-            print(f"The process {self.pid} has no child with ID {child_pid}.", file=stderr)
+            logger.error(f"The process {self.pid} has no child with ID {child_pid}.")
 
     def add_sensitive_resource(self, sensitive_artifact_locator):
         """
@@ -63,7 +68,7 @@ class Process:
             if len(self.sensitive_paths) == 0:
                 self.sensitive = False
         except ValueError:
-            print(f"Could not find {sensitive_artifact_locator} in the list of sensitive artifacts accessed by the process {self.pid}", file=stderr)
+            logger.error(f"Could not find {sensitive_artifact_locator} in the list of sensitive artifacts accessed by the process {self.pid}")
 
     def is_process_sensitive(self) -> bool:
         return self.sensitive
@@ -82,5 +87,5 @@ class Process:
                     child.add_sensitive_resource("Parent:"+self.pid)
                     child.propagate_sensitive_flag_to_children(process_map)
                 except KeyError:
-                    print(f"Error while propagating sensitive status from {self.pid} to child {child_pid}. No such child in the process map.", file=stderr)
+                    logger.error(f"Error while propagating sensitive status from {self.pid} to child {child_pid}. No such child in the process map.")
 
