@@ -4,14 +4,21 @@ from Process import Process
 import logging
 
 LOG_FILE_TO_MONITOR = "sample_auditd_logs/handful_logs"
-PROTECTED_LOCATIONS = ["safe-location"] # auditd reports relative path with some commands and full path with others.
+HOME_DIR = environ.get("HOME")
+
+PROTECTED_LOCATIONS = ["safe-location", f"{HOME_DIR}/safe-location"] # auditd reports relative path with some commands and full path with others.
 APP_LOG_FILE = "log_filter.log"
 
+
 # List of locations (in addition to the protected locations) to which sensitive data may be moved
-SAFE_LOCATIONS = [f"safe-location"] # auditd reports relative path with some commands and full path with others.
+SAFE_LOCATIONS = [f"safe-location", f"{HOME_DIR}/safe-location"] # auditd reports relative path with some commands and full path with others.
 
 process_map = dict()
 logger = logging.getLogger("log_filter")
+# This configuration applies to loggers instantiated in all other modules. Calling basicConfig() in another
+# module will override this configuration.
+logging.basicConfig(level=logging.INFO, handlers=[logging.FileHandler(APP_LOG_FILE), logging.StreamHandler(sys.stdout)],
+                    format="%(asctime)s - %(levelname)-8s - %(name)s - %(message)s")
 
 
 def split_logs_into_event_sequences(logs: str) -> [str]:
@@ -32,7 +39,7 @@ def is_path_sensitive(path: str) -> bool:
     :return: True if the path is sensitive, else False
     """
     for location_prefix in PROTECTED_LOCATIONS:
-        if location_prefix in path:
+        if path.startswith(location_prefix):
             return True
     return False
 
@@ -82,7 +89,7 @@ def process_event_sequence(event_sequence: str):
             path_event_dict = get_event_as_dict(event)
             # The path in the PATH message is available as the value of the attribute "name"
             paths.append(path_event_dict['name'])
-            if is_path_sensitive(event):
+            if is_path_sensitive(path_event_dict['name']):
                 sensitive_paths.append(path_event_dict['name'])
                 sensitive_path = sensitive_path | True
         if "SYSCALL" in event:
@@ -109,8 +116,8 @@ def process_event_sequence(event_sequence: str):
                     for path in paths:
                         process.add_sensitive_resource(path)
                     process.propagate_sensitive_flag_to_children(process_map)
-                    logger.info(f"The process {pid} and its children have been marked sensitive.")
-                    logger.info(f"Sensitive paths: {paths}")
+                    logger.info(f"The process {pid} read from a sensitive path. {pid} and its children have been marked sensitive.\nProcess command: {syscall['comm']}\nSensitive paths: {paths}")
+
                 else:
                     # If the process exists, and is sensitive
                     if (pid := syscall['pid']) in process_map:
@@ -121,19 +128,15 @@ def process_event_sequence(event_sequence: str):
                                 for path in paths:
                                     safe_path = False
                                     for safe_loc_prefix in SAFE_LOCATIONS:
-                                        if safe_loc_prefix in path:
+                                        if path.startswith(safe_loc_prefix):
                                             safe_path = safe_path | True
                                     safe_write = safe_write & safe_path
                                 if not safe_write:
                                     logger.warning(
-                                        f"The process with ID {pid} may write data to one or more unsafe locations. Write paths={paths}")
+                                        f"The process with ID {pid} may write data to one or more unsafe locations.\nWrite paths={paths}.\nProcess command: {syscall['comm']}")
 
 
 def main():
-    # This configuration applies to loggers instantiated in all other modules. Calling basicConfig() in another
-    # module will override this configuration.
-    logging.basicConfig(level=logging.INFO, handlers=[logging.FileHandler(APP_LOG_FILE), logging.StreamHandler(sys.stdout)],
-                        format="%(asctime)s - %(levelname)-8s - %(name)s - %(message)s")
     with open(LOG_FILE_TO_MONITOR, mode="r") as f_auditd_logs:
         logs = f_auditd_logs.read()
         events_sequences = split_logs_into_event_sequences(logs)
