@@ -52,7 +52,10 @@ def get_event_as_dict(log_event: str):
 
     # The event payload is composed of space separated attribute=value pairs
     for key_value_pair in event.split(" "):
-        key, value = key_value_pair.split("=")
+        kv_pair = key_value_pair.strip()
+        if len(kv_pair) == 0:
+            continue
+        key, value = kv_pair.split("=")
         event_dict[key] = value
     return event_dict
 
