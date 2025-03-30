@@ -1,7 +1,7 @@
 from os.path import join
 
 # Sensitive directory
-RESTRICTED_DIR = "/home/cs4440/exfiltration-testbed"
+RESTRICTED_DIR = "/home/cs4440/safe-location"
 RESTRICTED_FILE = "secret"
 
 # Read a file from a sensitive location
