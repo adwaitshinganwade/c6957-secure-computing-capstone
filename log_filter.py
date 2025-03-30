@@ -1,33 +1,21 @@
 import sys
 from os import environ
 from Process import Process
+from Logger import Logger
 import logging
+from audit_log_monitor import AuditLogMonitor
 
-LOG_FILE_TO_MONITOR = "sample_auditd_logs/handful_logs"
 HOME_DIR = environ.get("HOME")
-
-PROTECTED_LOCATIONS = ["safe-location", f"{HOME_DIR}/safe-location"] # auditd reports relative path with some commands and full path with others.
+PROTECTED_LOCATIONS = ["/home/cs4440/exfiltration-testbed"]
 APP_LOG_FILE = "log_filter.log"
 
 
 # List of locations (in addition to the protected locations) to which sensitive data may be moved
-SAFE_LOCATIONS = [f"safe-location", f"{HOME_DIR}/safe-location"] # auditd reports relative path with some commands and full path with others.
+SAFE_LOCATIONS = ["/home/cs4440/exfiltration-testbed"] # auditd reports relative path with some commands and full path with others.
 
 process_map = dict()
-logger = logging.getLogger("log_filter")
-# This configuration applies to loggers instantiated in all other modules. Calling basicConfig() in another
-# module will override this configuration.
-logging.basicConfig(level=logging.INFO, handlers=[logging.FileHandler(APP_LOG_FILE), logging.StreamHandler(sys.stdout)],
-                    format="%(asctime)s - %(levelname)-8s - %(name)s - %(message)s")
 
 
-def split_logs_into_event_sequences(logs: str) -> [str]:
-    """
-    Splits raw event logs collected using auditd into individual events based on the delimiter "----".
-    :param logs: A string which holds logs processed using ausearch
-    :return: List of individual events.
-    """
-    return logs.split("----")
 
 
 def is_path_sensitive(path: str) -> bool:
@@ -134,16 +122,9 @@ def process_event_sequence(event_sequence: str):
                                 if not safe_write:
                                     logger.warning(
                                         f"The process with ID {pid} may write data to one or more unsafe locations.\nWrite paths={paths}.\nProcess command: {syscall['comm']}")
-
-
-def main():
-    with open(LOG_FILE_TO_MONITOR, mode="r") as f_auditd_logs:
-        logs = f_auditd_logs.read()
-        events_sequences = split_logs_into_event_sequences(logs)
-        for event_sequence in events_sequences:
-            process_event_sequence(event_sequence)
-
-
-
+                                    
+# TODO - Only for testing. Delete later.
 if __name__ == "__main__":
-    main()
+    logger = Logger("log_filter", "log_filter.log", logging.INFO)
+    am = AuditLogMonitor("sample_auditd_logs/handful_logs")
+    am.monitor(process_event_sequence)
