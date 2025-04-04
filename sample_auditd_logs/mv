@@ -1,0 +1,14 @@
+----
+type=PROCTITLE msg=audit(04/03/2025 20:57:49.951:295) : proctitle=mv moved-secret ../unsafe-location/ 
+type=PATH msg=audit(04/03/2025 20:57:49.951:295) : item=1 name=/home/cs4440/safe-location inode=185737 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=PATH msg=audit(04/03/2025 20:57:49.951:295) : item=0 name=../ inode=193916 dev=08:01 mode=dir,755 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=CWD msg=audit(04/03/2025 20:57:49.951:295) : cwd=/home/cs4440/safe-location 
+type=SYSCALL msg=audit(04/03/2025 20:57:49.951:295) : arch=x86_64 syscall=renameat2 success=no exit=EEXIST(File exists) a0=0xffffff9c a1=0x7fffffffe382 a2=0xffffff9c a3=0x7fffffffe38f items=2 ppid=1174 pid=1803 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=mv exe=/usr/bin/mv subj=unconfined key=monitor-mv 
+----
+type=PROCTITLE msg=audit(04/03/2025 20:57:49.951:296) : proctitle=mv moved-secret ../unsafe-location/ 
+type=PATH msg=audit(04/03/2025 20:57:49.951:296) : item=3 name=../unsafe-location/moved-secret inode=186691 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=CREATE cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=PATH msg=audit(04/03/2025 20:57:49.951:296) : item=2 name=moved-secret inode=186691 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=DELETE cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=PATH msg=audit(04/03/2025 20:57:49.951:296) : item=1 name=/home/cs4440/safe-location inode=185737 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=PATH msg=audit(04/03/2025 20:57:49.951:296) : item=0 name=../unsafe-location/ inode=187214 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=CWD msg=audit(04/03/2025 20:57:49.951:296) : cwd=/home/cs4440/safe-location 
+type=SYSCALL msg=audit(04/03/2025 20:57:49.951:296) : arch=x86_64 syscall=renameat2 success=yes exit=0 a0=0xffffff9c a1=0x7fffffffe382 a2=0xffffff9c a3=0x55555557c2d0 items=4 ppid=1174 pid=1803 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=mv exe=/usr/bin/mv subj=unconfined key=monitor-mv
