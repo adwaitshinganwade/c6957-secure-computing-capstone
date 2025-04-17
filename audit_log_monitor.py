@@ -58,6 +58,6 @@ class AuditLogMonitor:
 
 
 # TODO - Only for testing. Delete later.
-if __name__ == "__main__":
-    am = AuditLogMonitor("sample_auditd_logs/handful_logs")
-    am.monitor()
+# if __name__ == "__main__":
+#     am = AuditLogMonitor("sample_auditd_logs/handful_logs")
+#     am.monitor(process_event_sequence)

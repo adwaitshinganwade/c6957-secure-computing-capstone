@@ -29,6 +29,12 @@ class Process:
         # Sensitive paths this process has access to (e.g., through open file handles)
         self.__sensitive_paths = list()
 
+        # Sensitive read
+        self.__sensitive_read = False
+
+        # Sensitive write
+        self.__sensitive_write = False
+
     def add_child(self, child_pid: str):
         """
         Adds a process (PID) to the list of children of this process.
@@ -52,6 +58,19 @@ class Process:
             self.__children.remove(child_pid)
         except ValueError:
             logger.error(f"The process {self.__pid} has no child with ID {child_pid}.")
+
+    # TODO - record paths? 
+    def mark_process_read_sensitive(self):
+        self.__sensitive_read = True
+
+    def mark_process_write_sensitive(self):
+        self.__sensitive_write = True
+
+    def is_read_sensitive(self) -> bool:
+        return self.__sensitive_read
+    
+    def is_write_sensitive(self) -> bool:
+        return self.__sensitive_write
 
     def add_sensitive_resource(self, sensitive_artifact_locator: str):
         """
