@@ -1,9 +1,10 @@
-import sys
 from os import environ
 from Process import Process
 from Logger import Logger
 import logging
+
 from audit_log_monitor import AuditLogMonitor
+from utils import *
 
 HOME_DIR = environ.get("HOME")
 PROTECTED_LOCATIONS = ["/home/cs4440/exfiltration-testbed"]
@@ -11,48 +12,9 @@ APP_LOG_FILE = "log_filter.log"
 
 
 # List of locations (in addition to the protected locations) to which sensitive data may be moved
-SAFE_LOCATIONS = ["/home/cs4440/exfiltration-testbed"] # auditd reports relative path with some commands and full path with others.
+SAFE_LOCATIONS = ["/home/cs4440/safe-location"]
 
 process_map = dict()
-
-
-
-
-def is_path_sensitive(path: str) -> bool:
-    """
-    Determines if a path is sensitive by comparing it against each location prefix
-    in PROTECTED_LOCATIONS. A path is considered sensitive if a location prefix matches
-    (appears at the beginning) of the provided path.
-    :param path: The path to be inspected
-    :return: True if the path is sensitive, else False
-    """
-    for location_prefix in PROTECTED_LOCATIONS:
-        if path.startswith(location_prefix):
-            return True
-    return False
-
-
-def get_event_as_dict(log_event: str):
-    """
-    Transforms an event reported by ausearch into a dictonary, with each key-value pair
-    representing one attribute-value pair from the event log.
-    :param log_event: A string containing a single event log
-    :return: The event from log_event as a dictionary
-    """
-
-    # The actual event data follows " : " in each event
-    event = log_event.split(" : ")[1]
-    event_dict = dict()
-
-    # The event payload is composed of space separated attribute=value pairs
-    for key_value_pair in event.split(" "):
-        kv_pair = key_value_pair.strip()
-        if len(kv_pair) == 0:
-            continue
-        key, value = kv_pair.split("=")
-        event_dict[key] = value
-    return event_dict
-
 
 def create_process_if_not_exists(pid, ppid=None, sensitive=False) -> bool:
     """
@@ -65,63 +27,68 @@ def create_process_if_not_exists(pid, ppid=None, sensitive=False) -> bool:
         return True
     return False
 
-
 def process_event_sequence(event_sequence: str):
     logger.debug(f"Current event sequence:\n{event_sequence}")
     events = event_sequence.split("\n")
+    # TODO - make sure that paths are normalized w.r.t. the CWD
     paths = []
     sensitive_paths = []
     sensitive_path = False
     for event in events:
-        if "PATH" in event:
-            path_event_dict = get_event_as_dict(event)
-            # The path in the PATH message is available as the value of the attribute "name"
-            paths.append(path_event_dict['name'])
-            if is_path_sensitive(path_event_dict['name']):
-                sensitive_paths.append(path_event_dict['name'])
-                sensitive_path = sensitive_path | True
-        if "SYSCALL" in event:
-            syscall = get_event_as_dict(event)
-            if syscall['syscall'] == 'openat':
-                if sensitive_path:
-                    # Mark the process, its parent, and children sensitive
-                    pid = syscall['pid']
-                    ppid = syscall['ppid']
+        if len(event.strip()) == 0:
+            continue
+        event_dict = get_event_as_dict(event)
+        match event_dict['type']:
+            case 'PATH':
+                # The path in the PATH message is available as the value of the attribute "name"
+                path = event_dict['name']
+                paths.append(path)
+                if is_path_sensitive(path, PROTECTED_LOCATIONS):
+                    sensitive_paths.append(path)
+                    sensitive_path = sensitive_path | True
 
-                    # Create a Process instance for this process, and its parent
-                    create_process_if_not_exists(pid, ppid)
-                    create_process_if_not_exists(ppid)
+            case 'SYSCALL':
+                if event_dict['syscall'] == 'openat':
+                    if sensitive_path:
+                        # Mark the process, its parent, and children sensitive
+                        pid = event_dict['pid']
+                        ppid = event_dict['ppid']
 
-                    parent_process = process_map[ppid]
-                    parent_process.add_child(pid)
-                    # TODO : Think - should the path be prefixed with "Child"?
-                    for path in sensitive_paths:
-                        parent_process.add_sensitive_resource(path)
-                    logger.info(f"The parent of process {pid} with PID {ppid} has been marked sensitive.")
+                        # Create a Process instance for this process, and its parent
+                        create_process_if_not_exists(pid, ppid)
+                        create_process_if_not_exists(ppid)
 
-                    process = process_map[pid]
-                    process.ppid = ppid
-                    for path in paths:
-                        process.add_sensitive_resource(path)
-                    process.propagate_sensitive_flag_to_children(process_map)
-                    logger.info(f"The process {pid} read from a sensitive path. {pid} and its children have been marked sensitive.\nProcess command: {syscall['comm']}\nSensitive paths: {paths}")
+                        parent_process = process_map[ppid]
+                        parent_process.add_child(pid)
 
-                else:
-                    # If the process exists, and is sensitive
-                    if (pid := syscall['pid']) in process_map:
                         process = process_map[pid]
-                        if process.is_process_sensitive():
-                            if 'O_WRONLY' in syscall['a2'] or 'O_RDWR' in syscall['a2']:
-                                safe_write = True
-                                for path in paths:
-                                    safe_path = False
-                                    for safe_loc_prefix in SAFE_LOCATIONS:
-                                        if path.startswith(safe_loc_prefix):
-                                            safe_path = safe_path | True
-                                    safe_write = safe_write & safe_path
-                                if not safe_write:
-                                    logger.warning(
-                                        f"The process with ID {pid} may write data to one or more unsafe locations.\nWrite paths={paths}.\nProcess command: {syscall['comm']}")
+                        process.ppid = ppid
+
+                        # TODO : Think - should the path be prefixed with "Child"?
+                        for path in sensitive_paths:
+                            parent_process.add_sensitive_resource(path)
+                            process.add_sensitive_resource(path)
+                        logger.info(f"The parent of process {pid} with PID {ppid} has been marked sensitive.")
+
+                        process.propagate_sensitive_flag_to_children(process_map)
+                        logger.info(f"The process {pid} read from a sensitive path. {pid} and its children have been marked sensitive.\nProcess command: {event_dict['comm']}\nSensitive paths: {sensitive_paths}")
+
+                    else:
+                        # If the process exists, and is sensitive
+                        if (pid := event_dict['pid']) in process_map:
+                            process = process_map[pid]
+                            if process.is_process_sensitive():
+                                if 'O_WRONLY' in event_dict['a2'] or 'O_RDWR' in event_dict['a2']:
+                                    safe_write = True
+                                    for path in paths:
+                                        safe_path = False
+                                        for safe_loc_prefix in SAFE_LOCATIONS:
+                                            if path.startswith(safe_loc_prefix):
+                                                safe_path = safe_path | True
+                                        safe_write = safe_write & safe_path
+                                    if not safe_write:
+                                        logger.warning(
+                                            f"The process with ID {pid} may write data to one or more unsafe locations.\nWrite paths={paths}.\nProcess command: {event_dict['comm']}")
                                     
 # TODO - Only for testing. Delete later.
 if __name__ == "__main__":

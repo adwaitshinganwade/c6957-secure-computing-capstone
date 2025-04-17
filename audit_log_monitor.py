@@ -1,3 +1,5 @@
+import time
+
 from pygtail import Pygtail
 
 class AuditLogMonitor:
@@ -52,6 +54,7 @@ class AuditLogMonitor:
             event_sequences = self.__split_logs_into_event_sequences(new_logs)
             for event in event_sequences:
                 event_callback(event)
+            time.sleep(10)
 
 
 # TODO - Only for testing. Delete later.
