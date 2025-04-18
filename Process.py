@@ -63,6 +63,7 @@ class Process:
     def mark_process_read_sensitive(self):
         self.__sensitive_read = True
 
+    # TODO - record paths?
     def mark_process_write_sensitive(self):
         self.__sensitive_write = True
 

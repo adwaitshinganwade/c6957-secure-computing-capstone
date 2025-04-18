@@ -10,7 +10,10 @@ def is_path_sensitive(path: str, protected_locations: [str]) -> bool:
     :return: True if the path is sensitive, else False
     """
     for location_prefix in protected_locations:
-        return path.startswith(location_prefix)
+        if path.startswith(location_prefix):
+            return True
+    return False
+        
 
 def resolve_path_wrt_cwd(relative_path: str, current_working_directory: str) -> str:
     """
