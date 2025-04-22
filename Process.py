@@ -35,6 +35,9 @@ class Process:
         # Sensitive write
         self.__sensitive_write = False
 
+    def set_parent(self, parent_pid: str):
+        self.__ppid = parent_pid
+
     def add_child(self, child_pid: str):
         """
         Adds a process (PID) to the list of children of this process.
@@ -115,6 +118,10 @@ class Process:
                 try:
                     child = process_map[child_pid]
                     child.add_sensitive_resource("Parent:"+self.__pid)
+                    if self.is_read_sensitive():
+                        child.mark_process_read_sensitive()
+                    if self.is_write_sensitive():
+                        child.mark_process_write_sensitive()
                     child.propagate_sensitive_flag_to_children(process_map)
                 except KeyError:
                     logger.error(f"Error while propagating sensitive status from {self.__pid} to child {child_pid}. No such child in the process map.")

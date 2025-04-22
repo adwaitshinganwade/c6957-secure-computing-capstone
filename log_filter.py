@@ -113,7 +113,17 @@ def process_event_sequence(event_sequence: str):
                 parent_process.add_child(pid)
 
                 process = process_map[pid]
-                process.ppid = ppid
+                process.set_parent = ppid
+
+                # Track cloning
+                match event_dict['syscall']:
+                    case 'clone':
+                        if event_dict['success'] == 'yes' and (child_pid := event_dict['exit']) != '0':
+                            process.add_child(child_pid)
+                            create_process_if_not_exists(child_pid)
+                            child_process = process_map[child_pid]
+                            child_process.set_parent(pid)
+
 
                 # Update read sensitivity
                 if sensitive_read:
@@ -121,11 +131,12 @@ def process_event_sequence(event_sequence: str):
                     process.mark_process_read_sensitive()
                     process.propagate_sensitive_flag_to_children(process_map)
                     for path, _ in paths:
-                        process.add_sensitive_resource(paths)
+                        process.add_sensitive_resource(path)
 
                 # Update write sensitivity
                 if sensitive_write:
                     process.mark_process_write_sensitive()
+                    process.propagate_sensitive_flag_to_children(process_map)
                     sensitive_pid = pid
 
                 sensitive_read = process.is_read_sensitive()
@@ -139,5 +150,5 @@ def process_event_sequence(event_sequence: str):
 # TODO - Only for testing. Delete later.
 if __name__ == "__main__":
     logger = Logger("log_filter", "log_filter.log", logging.DEBUG)
-    am = AuditLogMonitor("sample_auditd_logs/mv")
+    am = AuditLogMonitor("sample_auditd_logs/rsync-with-process-tracking")
     am.monitor(process_event_sequence)
