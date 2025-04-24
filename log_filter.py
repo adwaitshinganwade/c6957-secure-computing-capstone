@@ -124,7 +124,7 @@ def process_event_sequence(event_sequence: str):
 
                 # Track cloning
                 match event_dict['syscall']:
-                    case 'clone':
+                    case 'clone' | 'fork':
                         if event_dict['success'] == 'yes' and (child_pid := event_dict['exit']) != '0':
                             process.add_child(child_pid)
                             create_process_if_not_exists(child_pid)
