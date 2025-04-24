@@ -100,6 +100,13 @@ def process_event_sequence(event_sequence: str):
                             if is_path_read_sensitive(path):
                                 sensitive_read = True
                                 sensitive_paths.append(path)
+
+            case 'EXECVE':
+                # An event of type EXECVE represents the event of a process loading a binary. The paths in such an
+                # event typically correspond to shared libaries and executables. We'll skip processing such logs at
+                # this stage since the paths record in this event will be treated as write sensitive (unless locations
+                # like /usr/bin/ are considered safe for writing)
+                return
             case 'SYSCALL':
 
                 pid = event_dict['pid']
@@ -113,7 +120,7 @@ def process_event_sequence(event_sequence: str):
                 parent_process.add_child(pid)
 
                 process = process_map[pid]
-                process.set_parent = ppid
+                process.set_parent(ppid)
 
                 # Track cloning
                 match event_dict['syscall']:
@@ -127,11 +134,11 @@ def process_event_sequence(event_sequence: str):
 
                 # Update read sensitivity
                 if sensitive_read:
-                    # TODO - propagate sensitivity to children
                     process.mark_process_read_sensitive()
                     process.propagate_sensitive_flag_to_children(process_map)
                     for path, _ in paths:
                         process.add_sensitive_resource(path)
+                    sensitive_pid = pid
 
                 # Update write sensitivity
                 if sensitive_write:
@@ -150,5 +157,5 @@ def process_event_sequence(event_sequence: str):
 # TODO - Only for testing. Delete later.
 if __name__ == "__main__":
     logger = Logger("log_filter", "log_filter.log", logging.DEBUG)
-    am = AuditLogMonitor("sample_auditd_logs/rsync-with-process-tracking")
+    am = AuditLogMonitor("sample_auditd_logs/dd-local")
     am.monitor(process_event_sequence)

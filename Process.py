@@ -20,6 +20,7 @@ class Process:
         # ID of the process' parent
         self.__ppid = ppid
 
+        # TODO - Remove this (we now have separate flags for read and write sensitivity)
         # Flag that indicates whether or not the process is sensitive
         self.__sensitive = sensitive
 
@@ -36,6 +37,11 @@ class Process:
         self.__sensitive_write = False
 
     def set_parent(self, parent_pid: str):
+        """
+        Sets the parent (PID) of this process.
+        :param: parent_pid: The ID of the parent process
+        :return: nothing
+        """
         self.__ppid = parent_pid
 
     def add_child(self, child_pid: str):
