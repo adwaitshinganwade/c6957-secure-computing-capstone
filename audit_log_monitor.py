@@ -9,7 +9,7 @@ class AuditLogMonitor:
     It can also be told how it should separate events in the file. The :method:`monitor(event_callback)` method
     provides the infrastructure necessary to keep reading previously unread contents from the provided log file.
     """
-    def __init__(self, log_file: str, log_event_delimiter: str = "----"):
+    def __init__(self, log_file: str, logger, log_event_delimiter: str = "----"):
         """
         Creates an instance of :class:`AuditLogMonitor` that reads logs from a log
         file located at :attr:`log_file` and treats the character sequence :attr:`log_event_delimiter`
@@ -21,6 +21,7 @@ class AuditLogMonitor:
         """
         self.__log_file = log_file
         self.__log_event_delimiter = log_event_delimiter
+        self.__logger = logger
 
 
     def __split_logs_into_event_sequences(self, logs: str) -> [str]:
@@ -49,15 +50,14 @@ class AuditLogMonitor:
         Each event (a string) is passed as an argument to :attr:`event_callback`.
         """
         while True:
-            # TODO - incomplete event sequences
-            new_logs = self.__fetch_new_logs()
-            event_sequences = self.__split_logs_into_event_sequences(new_logs)
-            for event in event_sequences:
-                event_callback(event)
+            try:
+                new_logs = self.__fetch_new_logs()
+                event_sequences = self.__split_logs_into_event_sequences(new_logs)
+                for event in event_sequences:
+                    event_callback(event)
+            except FileNotFoundError as fnfe:
+                self.__logger.error(f"Error!\n{fnfe}")
+                break
+            except Exception as e:
+                self.__logger.error(f"Error!\n{e}")
             time.sleep(10)
-
-
-# TODO - Only for testing. Delete later.
-# if __name__ == "__main__":
-#     am = AuditLogMonitor("sample_auditd_logs/handful_logs")
-#     am.monitor(process_event_sequence)
