@@ -4,16 +4,11 @@ import logging
 
 from audit_log_monitor import AuditLogMonitor
 from utils import *
+from rule_engine import RuleEngine
 
-# List of path prefixes that define locations which store sensitive data. Each path in
-# this list MUST be fully resolved (should not be relative).
-PROTECTED_LOCATIONS = ["/home/cs4440/exfiltration-testbed", "/home/cs4440/safe-location"]
+# Default log file
 APP_LOG_FILE = "log_filter.log"
-
-
-# List of locations (in addition to the protected locations) to which sensitive data may be moved.
-# Each path in this list MUST be fully resolved (should not be relative).
-SAFE_LOCATIONS = ["/home/cs4440/safe-location"]
+RULES_FILE = "rules.yaml"
 
 # A dictionary that maps process IDs (string) to the corresponding `Process` object.
 process_map = dict()
@@ -31,25 +26,17 @@ def create_process_if_not_exists(pid, ppid=None, sensitive=False) -> bool:
         return True
     return False
 
-def is_path_read_sensitive(path: str) -> bool:
+def is_path_read_sensitive(path: str, rule_engine) -> bool:
     """
-    Determines if the supplied path is sensitive for a read operation. A path is
-    considered read-sensitive if it begins with one of the prefixes provided in 
-    `PROTECTED_LOCATION`.
-    :param path: The path to be tested. The path MUST be fully resolved (should not be relative)
-    :return: `True` if the path is read-sensitive, `False` otherwise.
+    Determines if the supplied path is sensitive for a read operation using the rule engine.
     """
-    return is_path_sensitive(path, PROTECTED_LOCATIONS)
+    return is_path_sensitive(path, rule_engine.get_protected_locations())
 
-def is_path_write_sensitive(path: str) -> bool:
+def is_path_write_sensitive(path: str, rule_engine) -> bool:
     """
-    Determines if the supplied path is sensitive for a write operation. A path is
-    considered write-sensitive if it does not begin with any of the prefixes provided in 
-    `SAFE_LOCATIONS`.
-    :param path: The path to be tested. The path MUST be fully resolved (should not be relative)
-    :return: `True` if the path is write-sensitive, `False` otherwise.
+    Determines if the supplied path is sensitive for a write operation using the rule engine.
     """
-    return (not is_path_sensitive(path, SAFE_LOCATIONS))
+    return (not is_path_sensitive(path, rule_engine.get_safe_locations()))
 
 def add_read_sensitive_paths_to_process(process: Process, paths):
     """
@@ -74,6 +61,8 @@ def add_write_sensitive_paths_to_process(process: Process, paths):
 ## Helper functions end ##
 
 def process_event_sequence(event_sequence: str):
+    global logger, rule_engine
+    
     logger.debug(f"Current event sequence:\n{event_sequence}")
     events = event_sequence.split("\n")
 
@@ -93,54 +82,101 @@ def process_event_sequence(event_sequence: str):
     sensitive_pid_commands = []
     current_working_directory = None
 
+    # Convert event sequence to an event_data dictionary for rule processing
+    event_data = {
+        'events': [],
+        'paths': [],
+        'sensitive_read_paths': [],
+        'sensitive_write_paths': [],
+        'pid': None,
+        'ppid': None,
+        'syscall': None,
+        'success': None,
+        'type': None,
+        'executable': None,
+        'cwd': None
+    }
+
     for event in events:
         if len(event.strip()) == 0:
             continue
         event_dict = get_event_as_dict(event)
+        
+        # Add this event to the event_data for rule processing
+        event_data['events'].append(event_dict)
+        
+        # Update specific fields in event_data for easier rule matching
+        if 'type' in event_dict:
+            event_data['type'] = event_dict['type']
+        if 'pid' in event_dict:
+            event_data['pid'] = event_dict['pid']
+        if 'ppid' in event_dict:
+            event_data['ppid'] = event_dict['ppid']
+        if 'syscall' in event_dict:
+            event_data['syscall'] = event_dict['syscall']
+        if 'success' in event_dict:
+            event_data['success'] = event_dict['success']
+        
         try:
             match event_dict['type']:
                 # PROCTITLE logs the command associated with this event
                 case 'PROCTITLE':
                     if 'proctitle' in event_dict:
-                        sensitive_pid_commands.append(event[event.index('proctitle=')+10:])
+                        proctitle = event[event.index('proctitle=')+10:]
+                        sensitive_pid_commands.append(proctitle)
+                        event_data['executable'] = proctitle
                 case 'PATH':
                     # The path in the PATH message is available as the value of the attribute "name"
                     path = event_dict['name']
                     mode = event_dict['nametype']
                     paths.append((path, mode))
+                    event_data['paths'].append(path)
 
                 # The CWD message is logged after PATH messages. Resolve all recorded paths with respect to the
                 # current working directory
                 case 'CWD':
                     current_working_directory = event_dict['cwd']
-                    paths = [(resolve_path_wrt_cwd(path, current_working_directory), mode) for path, mode in paths]
-
+                    event_data['cwd'] = current_working_directory
+                    resolved_paths = []
+                    
                     for path, mode in paths:
-                        logger.debug(f"Inspecting path: {path}")
+                        resolved_path = resolve_path_wrt_cwd(path, current_working_directory)
+                        resolved_paths.append((resolved_path, mode))
+                        
+                        logger.debug(f"Inspecting path: {resolved_path}")
                         match mode:
                             case 'NORMAL':
-                                if is_path_read_sensitive(path):
+                                if is_path_read_sensitive(resolved_path, rule_engine):
                                     sensitive_read = True
-                                    sensitive_read_paths.append(path)
-                                elif is_path_write_sensitive(path):
+                                    sensitive_read_paths.append(resolved_path)
+                                    event_data['sensitive_read_paths'].append(resolved_path)
+                                elif is_path_write_sensitive(resolved_path, rule_engine):
                                     sensitive_write = True
-                                    sensitive_write_paths.append(path)
+                                    sensitive_write_paths.append(resolved_path)
+                                    event_data['sensitive_write_paths'].append(resolved_path)
                             case 'CREATE':
-                                if is_path_write_sensitive(path):
+                                if is_path_write_sensitive(resolved_path, rule_engine):
                                     sensitive_write = True
-                                    sensitive_write_paths.append(path)
+                                    sensitive_write_paths.append(resolved_path)
+                                    event_data['sensitive_write_paths'].append(resolved_path)
                             case 'TARGET':
-                                if is_path_write_sensitive(path):
+                                if is_path_write_sensitive(resolved_path, rule_engine):
                                     sensitive_write = True
-                                    sensitive_write_paths.append(path)
+                                    sensitive_write_paths.append(resolved_path)
+                                    event_data['sensitive_write_paths'].append(resolved_path)
                             case 'DELETE':
-                                if is_path_read_sensitive(path):
+                                if is_path_read_sensitive(resolved_path, rule_engine):
                                     sensitive_read = True
-                                    sensitive_read_paths.append(path)
+                                    sensitive_read_paths.append(resolved_path)
+                                    event_data['sensitive_read_paths'].append(resolved_path)
                             case 'SOURCE':
-                                if is_path_read_sensitive(path):
+                                if is_path_read_sensitive(resolved_path, rule_engine):
                                     sensitive_read = True
-                                    sensitive_read_paths.append(path)
+                                    sensitive_read_paths.append(resolved_path)
+                                    event_data['sensitive_read_paths'].append(resolved_path)
+                                    
+                    # Update paths with resolved paths
+                    paths = resolved_paths
 
                 case 'EXECVE':
                     # An event of type EXECVE represents the event of a process loading a binary. The paths in such an
@@ -149,7 +185,6 @@ def process_event_sequence(event_sequence: str):
                     # like /usr/bin/ are considered safe for writing)
                     return
                 case 'SYSCALL':
-
                     pid = event_dict['pid']
                     ppid = event_dict['ppid']
 
@@ -173,6 +208,10 @@ def process_event_sequence(event_sequence: str):
                                 child_process.set_parent(pid)
                                 child_process.inherit_sensitivity_from_parent(pid, process_map)
 
+                    # Process rule matching for this event
+                    matching_rules = rule_engine.evaluate_event(event_data)
+                    for rule in matching_rules:
+                        rule_engine.execute_rule_actions(rule, event_data, process_map)
 
                     # Update read sensitivity
                     if sensitive_read:
@@ -195,6 +234,8 @@ def process_event_sequence(event_sequence: str):
                     sensitive_write_paths = process.get_sensitive_write_paths()
         except Exception as e:
             logger.error(f"Error!\n{e}")     
+            
+    # Log potential data exfiltration (this is kept from the original implementation)
     if sensitive_write and sensitive_read:
         logger.warning(
             f"The process with ID {sensitive_pid} may write data to one or more unsafe locations.\
@@ -204,8 +245,25 @@ def process_event_sequence(event_sequence: str):
             \nProcess command: {sensitive_pid_commands}")
 
 
-# TODO - Only for testing. Delete later.
-if __name__ == "__main__":
-    logger = Logger("log_filter", "log_filter.log", logging.INFO)
-    am = AuditLogMonitor("sample_auditd_logs/fork-test-c-program", logger)
+# Entry point for the program
+def main():
+    global logger, rule_engine
+    
+    # Initialize the logger
+    logger = Logger("log_filter", APP_LOG_FILE, logging.INFO)
+    logger.info("Initializing log filter with rule engine...")
+    
+    # Initialize the rule engine
+    rule_engine = RuleEngine(RULES_FILE, logger)
+    
+    # Get the audit log file from environment or use default
+    audit_log_file = "sample_auditd_logs/fork-test-c-program"  # Default for testing
+    
+    logger.info(f"Starting audit log monitor on {audit_log_file}")
+    am = AuditLogMonitor(audit_log_file, logger)
     am.monitor(process_event_sequence)
+
+
+# Entry point when run directly
+if __name__ == "__main__":
+    main()

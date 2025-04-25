@@ -1,0 +1,15 @@
+# Build the Docker image
+
+docker build -t security-monitoring-system .
+
+# Run the Docker container
+docker run -d -p 8080:80 --name security-monitor security-monitoring-system
+
+# Check the logs of the running container
+docker logs security-monitor
+
+# Stop the Docker container
+docker stop security-monitor
+
+# Remove the Docker container
+docker rm security-monitor 

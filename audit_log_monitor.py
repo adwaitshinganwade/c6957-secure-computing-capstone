@@ -1,6 +1,7 @@
 import time
 
 from pygtail import Pygtail
+from rule_engine import RuleEngine
 
 class AuditLogMonitor:
     """
@@ -9,7 +10,7 @@ class AuditLogMonitor:
     It can also be told how it should separate events in the file. The :method:`monitor(event_callback)` method
     provides the infrastructure necessary to keep reading previously unread contents from the provided log file.
     """
-    def __init__(self, log_file: str, logger, log_event_delimiter: str = "----"):
+    def __init__(self, log_file: str, logger, rule_engine=None, log_event_delimiter: str = "----"):
         """
         Creates an instance of :class:`AuditLogMonitor` that reads logs from a log
         file located at :attr:`log_file` and treats the character sequence :attr:`log_event_delimiter`
@@ -22,6 +23,7 @@ class AuditLogMonitor:
         self.__log_file = log_file
         self.__log_event_delimiter = log_event_delimiter
         self.__logger = logger
+        self.__rule_engine = rule_engine
 
 
     def __split_logs_into_event_sequences(self, logs: str) -> [str]:
@@ -54,7 +56,8 @@ class AuditLogMonitor:
                 new_logs = self.__fetch_new_logs()
                 event_sequences = self.__split_logs_into_event_sequences(new_logs)
                 for event in event_sequences:
-                    event_callback(event)
+                    if event.strip():  # Skip empty events
+                        event_callback(event)
             except FileNotFoundError as fnfe:
                 self.__logger.error(f"Error!\n{fnfe}")
                 break

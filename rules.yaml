@@ -1,0 +1,73 @@
+global:
+  # Locations that contain sensitive data that should be protected
+  protected_locations:
+    - "/home/cs4440/exfiltration-testbed"
+    - "/home/cs4440/safe-location"
+  
+  # Locations where it's safe to write sensitive data
+  safe_locations:
+    - "/home/cs4440/safe-location"
+
+# Rules for detecting potentially malicious activity
+rules:
+  - id: data_exfiltration
+    name: "Data Exfiltration Detection"
+    description: "Detects when sensitive data is read and written to an unsafe location"
+    severity: WARNING
+    conditions:
+      type: SYSCALL
+      syscall: 
+        - write
+        - pwrite
+        - writev
+    actions:
+      - log_warning
+      - track_process
+      - mark_write_sensitive
+  
+  - id: sensitive_file_access
+    name: "Sensitive File Access"
+    description: "Detects access to sensitive files"
+    severity: INFO
+    conditions:
+      type: PATH
+      name: "regex:.*\\.secret$"
+    actions:
+      - log_info
+      - track_process
+      - mark_read_sensitive
+  
+  - id: credential_access
+    name: "Password File Access"
+    description: "Detects access to password or credential files"
+    severity: WARNING
+    conditions:
+      type: PATH
+      name: "regex:.*passwd|.*shadow|.*credentials.*"
+    actions:
+      - log_warning
+      - track_process
+      - mark_read_sensitive
+  
+  - id: executable_modification
+    name: "Executable File Modification"
+    description: "Detects when executable files are modified"
+    severity: WARNING
+    conditions:
+      type: PATH
+      nametype: CREATE
+      name: "regex:.*\\.exe$|.*\\.sh$"
+    actions:
+      - log_warning
+  
+  - id: process_clone
+    name: "Process Clone Detection"
+    description: "Detects when a sensitive process creates a new process"
+    severity: INFO
+    conditions:
+      type: SYSCALL
+      syscall: clone
+      success: yes
+    actions:
+      - log_info
+      - track_process 
