@@ -1,0 +1,29 @@
+----
+type=PROCTITLE msg=audit(04/24/2025 16:50:31.620:234) : proctitle=/bin/bash 
+type=PATH msg=audit(04/24/2025 16:50:31.620:234) : item=0 name=/home/cs4440/unsafe-location/ inode=187214 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=CWD msg=audit(04/24/2025 16:50:31.620:234) : cwd=/home/cs4440/c6957-secure-computing-capstone/final-demo 
+type=SYSCALL msg=audit(04/24/2025 16:50:31.620:234) : arch=x86_64 syscall=openat success=yes exit=3 a0=0xffffff9c a1=0x5555557d8a50 a2=O_RDONLY|O_NONBLOCK|O_DIRECTORY|O_CLOEXEC a3=0x0 items=1 ppid=1239 pid=1362 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=bash exe=/usr/bin/bash subj=unconfined key=exfil-test 
+----
+type=PROCTITLE msg=audit(04/24/2025 16:50:34.277:235) : proctitle=/bin/bash 
+type=SYSCALL msg=audit(04/24/2025 16:50:34.277:235) : arch=x86_64 syscall=clone success=yes exit=1363 a0=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD a1=0x0 a2=0x0 a3=0x7ffff7d86a10 items=0 ppid=1236 pid=1239 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=bash exe=/usr/bin/bash subj=unconfined key=exfil-test 
+----
+type=PROCTITLE msg=audit(04/24/2025 16:50:34.277:236) : proctitle=./fork-based-exfiltration /home/cs4440/safe-location/fork_test_file /home/cs4440/unsafe-location/fork_test_file 
+type=PATH msg=audit(04/24/2025 16:50:34.277:236) : item=1 name=/lib64/ld-linux-x86-64.so.2 inode=301514 dev=08:01 mode=file,755 ouid=root ogid=root rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=PATH msg=audit(04/24/2025 16:50:34.277:236) : item=0 name=./fork-based-exfiltration inode=189554 dev=08:01 mode=file,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=CWD msg=audit(04/24/2025 16:50:34.277:236) : cwd=/home/cs4440/c6957-secure-computing-capstone/final-demo 
+type=EXECVE msg=audit(04/24/2025 16:50:34.277:236) : argc=3 a0=./fork-based-exfiltration a1=/home/cs4440/safe-location/fork_test_file a2=/home/cs4440/unsafe-location/fork_test_file 
+type=SYSCALL msg=audit(04/24/2025 16:50:34.277:236) : arch=x86_64 syscall=execve success=yes exit=0 a0=0x5555557f57e0 a1=0x5555557e4a90 a2=0x5555557da390 a3=0x8 items=2 ppid=1239 pid=1363 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=fork-based-exfi exe=/home/cs4440/c6957-secure-computing-capstone/final-demo/fork-based-exfiltration subj=unconfined key=exfil-test 
+----
+type=PROCTITLE msg=audit(04/24/2025 16:50:34.277:237) : proctitle=./fork-based-exfiltration /home/cs4440/safe-location/fork_test_file /home/cs4440/unsafe-location/fork_test_file 
+type=PATH msg=audit(04/24/2025 16:50:34.277:237) : item=0 name=/home/cs4440/safe-location/fork_test_file inode=188101 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=CWD msg=audit(04/24/2025 16:50:34.277:237) : cwd=/home/cs4440/c6957-secure-computing-capstone/final-demo 
+type=SYSCALL msg=audit(04/24/2025 16:50:34.277:237) : arch=x86_64 syscall=openat success=yes exit=3 a0=0xffffff9c a1=0x7fffffffe323 a2=O_RDONLY a3=0x0 items=1 ppid=1239 pid=1363 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=fork-based-exfi exe=/home/cs4440/c6957-secure-computing-capstone/final-demo/fork-based-exfiltration subj=unconfined key=exfil-test 
+----
+type=PROCTITLE msg=audit(04/24/2025 16:50:34.277:238) : proctitle=./fork-based-exfiltration /home/cs4440/safe-location/fork_test_file /home/cs4440/unsafe-location/fork_test_file 
+type=SYSCALL msg=audit(04/24/2025 16:50:34.277:238) : arch=x86_64 syscall=clone success=yes exit=1364 a0=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD a1=0x0 a2=0x0 a3=0x7ffff7fb2810 items=0 ppid=1239 pid=1363 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=fork-based-exfi exe=/home/cs4440/c6957-secure-computing-capstone/final-demo/fork-based-exfiltration subj=unconfined key=exfil-test 
+----
+type=PROCTITLE msg=audit(04/24/2025 16:50:34.281:239) : proctitle=./fork-based-exfiltration /home/cs4440/safe-location/fork_test_file /home/cs4440/unsafe-location/fork_test_file 
+type=PATH msg=audit(04/24/2025 16:50:34.281:239) : item=1 name=/home/cs4440/unsafe-location/fork_test_file inode=172631 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=CREATE cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=PATH msg=audit(04/24/2025 16:50:34.281:239) : item=0 name=/home/cs4440/unsafe-location/ inode=187214 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=CWD msg=audit(04/24/2025 16:50:34.281:239) : cwd=/home/cs4440/c6957-secure-computing-capstone/final-demo 
+type=SYSCALL msg=audit(04/24/2025 16:50:34.281:239) : arch=x86_64 syscall=openat success=yes exit=4 a0=0xffffff9c a1=0x7fffffffe34d a2=O_WRONLY|O_CREAT|O_TRUNC a3=0x1b6 items=2 ppid=1 pid=1364 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=fork-based-exfi exe=/home/cs4440/c6957-secure-computing-capstone/final-demo/fork-based-exfiltration subj=unconfined key=exfil-test

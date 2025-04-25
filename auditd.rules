@@ -4,3 +4,8 @@ sudo auditctl -a always,exit -S openat -F dir=/home/cs4440/exfiltration-testbed 
 # Rules to monitor writes (and optionally, reads) to an unsafe location
 sudo auditctl -a always,exit -S openat -F dir=/home/cs4440/unsafe-location -F perm=rw -k exfil-test
 sudo auditctl -a always,exit -S write -F dir=/home/cs4440/unsafe-location -k exfil-test
+
+# Rules to monitor system calls that create processes
+sudo auditctl -a always,exit -F arch=b64 -S openat -F dir=/home/cs4440/safe-location -F perm=rw -k exfil-test
+sudo auditctl -a always,exit -F arch=b64 -S openat -F dir=/home/cs4440/unsafe-location -F perm=rw -k exfil-test
+sudo auditctl -a always,exit -F arch=b64 -S clone,execve,fork,vfork -k exfil-test

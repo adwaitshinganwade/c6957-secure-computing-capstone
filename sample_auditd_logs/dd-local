@@ -1,0 +1,21 @@
+----
+type=PROCTITLE msg=audit(04/24/2025 13:30:57.364:172) : proctitle=/bin/bash 
+type=SYSCALL msg=audit(04/24/2025 13:30:57.364:172) : arch=x86_64 syscall=clone success=yes exit=1532 a0=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD a1=0x0 a2=0x0 a3=0x7ffff7d86a10 items=0 ppid=1217 pid=1220 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=bash exe=/usr/bin/bash subj=unconfined key=exfil-test 
+----
+type=PROCTITLE msg=audit(04/24/2025 13:30:57.364:173) : proctitle=dd if=safe-location/dd_test_file3 of=unsafe-location/dd_test_file3 bs=4K 
+type=PATH msg=audit(04/24/2025 13:30:57.364:173) : item=1 name=/lib64/ld-linux-x86-64.so.2 inode=301514 dev=08:01 mode=file,755 ouid=root ogid=root rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=PATH msg=audit(04/24/2025 13:30:57.364:173) : item=0 name=/usr/bin/dd inode=262898 dev=08:01 mode=file,755 ouid=root ogid=root rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=CWD msg=audit(04/24/2025 13:30:57.364:173) : cwd=/home/cs4440 
+type=EXECVE msg=audit(04/24/2025 13:30:57.364:173) : argc=4 a0=dd a1=if=safe-location/dd_test_file3 a2=of=unsafe-location/dd_test_file3 a3=bs=4K 
+type=SYSCALL msg=audit(04/24/2025 13:30:57.364:173) : arch=x86_64 syscall=execve success=yes exit=0 a0=0x5555557ee8c0 a1=0x5555557e1b00 a2=0x5555557ce070 a3=0x8 items=2 ppid=1220 pid=1532 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=dd exe=/usr/bin/dd subj=unconfined key=exfil-test 
+----
+type=PROCTITLE msg=audit(04/24/2025 13:30:57.368:174) : proctitle=dd if=safe-location/dd_test_file3 of=unsafe-location/dd_test_file3 bs=4K 
+type=PATH msg=audit(04/24/2025 13:30:57.368:174) : item=0 name=safe-location/dd_test_file3 inode=186697 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=CWD msg=audit(04/24/2025 13:30:57.368:174) : cwd=/home/cs4440 
+type=SYSCALL msg=audit(04/24/2025 13:30:57.368:174) : arch=x86_64 syscall=openat success=yes exit=3 a0=0xffffff9c a1=0x7fffffffe36f a2=O_RDONLY a3=0x0 items=1 ppid=1220 pid=1532 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=dd exe=/usr/bin/dd subj=unconfined key=exfil-test 
+----
+type=PROCTITLE msg=audit(04/24/2025 13:30:57.368:175) : proctitle=dd if=safe-location/dd_test_file3 of=unsafe-location/dd_test_file3 bs=4K 
+type=PATH msg=audit(04/24/2025 13:30:57.368:175) : item=1 name=unsafe-location/dd_test_file3 inode=133045 dev=08:01 mode=file,664 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=CREATE cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=PATH msg=audit(04/24/2025 13:30:57.368:175) : item=0 name=unsafe-location/ inode=187214 dev=08:01 mode=dir,775 ouid=cs4440 ogid=cs4440 rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0 
+type=CWD msg=audit(04/24/2025 13:30:57.368:175) : cwd=/home/cs4440 
+type=SYSCALL msg=audit(04/24/2025 13:30:57.368:175) : arch=x86_64 syscall=openat success=yes exit=3 a0=0xffffff9c a1=0x7fffffffe38e a2=O_WRONLY|O_CREAT|O_TRUNC a3=0x1b6 items=2 ppid=1220 pid=1532 auid=cs4440 uid=cs4440 gid=cs4440 euid=cs4440 suid=cs4440 fsuid=cs4440 egid=cs4440 sgid=cs4440 fsgid=cs4440 tty=pts0 ses=1 comm=dd exe=/usr/bin/dd subj=unconfined key=exfil-test

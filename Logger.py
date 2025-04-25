@@ -4,7 +4,8 @@ import sys
 class Colors:
     GREEN = '\033[92m'
     CYAN = '\033[96m'
-    RED = '\e[0;31m'
+    RED = '\033[0;31m'
+    ORANGE = '\033[38;2;255;165;0m'
     END = '\033[0m'
 
 class Logger:
@@ -20,7 +21,7 @@ class Logger:
         self.__logger = logging.getLogger(self.__logger_name)
 
         # Set colors for logging levels
-        self.__WARN_COLOR = Colors.CYAN
+        self.__WARN_COLOR = Colors.ORANGE
         self.__ERROR_COLOR = Colors.RED
 
         # Set the default method to log
