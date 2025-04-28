@@ -17,9 +17,7 @@ rules:
     conditions:
       type: SYSCALL
       syscall: 
-        - write
-        - pwrite
-        - writev
+        - rename
     actions:
       - log_warning
       - track_process
