@@ -29,4 +29,6 @@ echo "Setting up auditd rules"
 
 sudo auditctl -a always,exit -F arch=b64 -S openat -F dir=/home/cs4440/safe-location -F perm=rw -k exfil-final-demo
 sudo auditctl -a always,exit -F arch=b64 -S openat -F dir=/home/cs4440/unsafe-location -F perm=rw -k exfil-final-demo
+sudo auditctl -a always,exit -F arch=b64 -S rename,renameat,renameat2 -F dir=/home/cs4440/safe-location -k exfil-final-demo
+sudo auditctl -a never,exit -F arch=b64 -S execve -F exe=/usr/sbin/ausearch
 sudo auditctl -a always,exit -F arch=b64 -S clone,execve,fork,vfork -k exfil-final-demo
